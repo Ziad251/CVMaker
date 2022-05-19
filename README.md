@@ -6,3 +6,6 @@
 #React Native <br><br>
 #CRA <br><br>
 #Bootstrap <br><br>
+
+Live preview: <br>
+https://ziad251.github.io/cvmaker/
