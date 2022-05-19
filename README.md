@@ -3,7 +3,7 @@
 
 
 🛠️ Built with <br><br>
-#React Native <br><br>
+#React <br><br>
 #CRA <br><br>
 #Bootstrap <br><br>
 
