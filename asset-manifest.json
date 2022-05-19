@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cvmaker/static/css/main.fb9023ad.css",
+    "main.js": "/cvmaker/static/js/main.9c6cbba0.js",
+    "static/js/787.3d0359b0.chunk.js": "/cvmaker/static/js/787.3d0359b0.chunk.js",
+    "index.html": "/cvmaker/index.html",
+    "main.fb9023ad.css.map": "/cvmaker/static/css/main.fb9023ad.css.map",
+    "main.9c6cbba0.js.map": "/cvmaker/static/js/main.9c6cbba0.js.map",
+    "787.3d0359b0.chunk.js.map": "/cvmaker/static/js/787.3d0359b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb9023ad.css",
+    "static/js/main.9c6cbba0.js"
+  ]
+}
