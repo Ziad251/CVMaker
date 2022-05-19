@@ -1,5 +1,5 @@
 import React from "react";
-import './Overview.css';
+import '.styles/Overview.css';
 
 const Overview = (props) => {
   const { info, education, experience } = props;
