@@ -1,91 +1,87 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Education extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            education: {
-                schoolName: "",
-                titleOfStudy: "",
-                startDate: "",
-            }
-        };
-    }
+const Education = (props) => {
+    const [state, setState] = useState({
+        education: {
+            schoolName: "",
+            titleOfStudy: "",
+            startDate: "",
+        }
+    });
 
-    handleschoolNameChange = (e) => {
-        this.setState({
+
+    const handleschoolNameChange = (e) => {
+        setState({
             education: {
                 schoolName: e.target.value,
-                titleOfStudy: this.state.education.titleOfStudy,
-                startDate: this.state.education.startDate,
+                titleOfStudy: state.education.titleOfStudy,
+                startDate: state.education.startDate,
 
             }
         });
     };
 
-    handletitleOfStudyChange = (e) => {
-        this.setState({
+    const handletitleOfStudyChange = (e) => {
+        setState({
             education: {
                 titleOfStudy: e.target.value,
-                schoolName: this.state.education.schoolName,
-                startDate: this.state.education.startDate,
+                schoolName: state.education.schoolName,
+                startDate: state.education.startDate,
 
             }
         });
     };
-    handlestartDateChange = (e) => {
-        this.setState({
+    const handlestartDateChange = (e) => {
+        setState({
             education: {
                 startDate: e.target.value,
-                schoolName: this.state.education.schoolName,
-                titleOfStudy: this.state.education.titleOfStudy,
+                schoolName: state.education.schoolName,
+                titleOfStudy: state.education.titleOfStudy,
             }
         });
     };
-    onSubmitTask = (e) => {
+    const onSubmitTask = (e) => {
         e.preventDefault();
-        this.props.updateEducation(this.state.education);
+        props.updateEducation(state.education);
     }
 
-    render() {
-        const { education } = this.state;
 
-        return (
-            <div className="row g-3">
-                <div className="form-floating col-md-6">
-                    <input onChange={this.handleschoolNameChange}
-                        value={education.schoolName}
-                        type="text"
-                        id="schoolNameInput"
-                        className="form-control">
-                    </input>
-                    <label htmlFor="schoolNameInput">School Name</label>
-                </div>
-                <div className="form-floating col-md-6">
-                    <input onChange={this.handletitleOfStudyChange}
-                        value={education.titleOfStudy}
-                        type="text"
-                        id="titleOfStudyInput"
-                        className="form-control">
-                    </input>
-                    <label htmlFor="titleOfStudyInput">Title Of Study</label>
-                </div>
-                <div className="form-floating col mb-3">
-                    <input onChange={this.handlestartDateChange}
-                        value={education.startDate}
-                        type="date"
-                        id="startDateInput"
-                        className="form-control">
-                    </input>
-                    <label htmlFor="startDateInput">Start Date</label>
-                </div>
-                <div className="d-grid gap-2">
-                    <button onClick={this.onSubmitTask}>Save</button>
-                </div>
+    const { education } = state;
+
+    return (
+        <div className="row g-3">
+            <div className="form-floating col-md-6">
+                <input onChange={handleschoolNameChange}
+                    value={education.schoolName}
+                    type="text"
+                    id="schoolNameInput"
+                    className="form-control">
+                </input>
+                <label htmlFor="schoolNameInput">School Name</label>
             </div>
-        )
-
-    }
+            <div className="form-floating col-md-6">
+                <input onChange={handletitleOfStudyChange}
+                    value={education.titleOfStudy}
+                    type="text"
+                    id="titleOfStudyInput"
+                    className="form-control">
+                </input>
+                <label htmlFor="titleOfStudyInput">Title Of Study</label>
+            </div>
+            <div className="form-floating col mb-3">
+                <input onChange={handlestartDateChange}
+                    value={education.startDate}
+                    type="date"
+                    id="startDateInput"
+                    className="form-control">
+                </input>
+                <label htmlFor="startDateInput">Start Date</label>
+            </div>
+            <div className="d-grid gap-2">
+                <button onClick={onSubmitTask}>Save</button>
+            </div>
+        </div>
+    )
 
 }
 

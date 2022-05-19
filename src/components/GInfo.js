@@ -1,59 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class GInfo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            info: {
-                name: "",
-                email: "",
-                phone: "",
-            }
-        };
-    }
+const GInfo = (props) => {
 
-    handleNameChange = (e) => {
-        this.setState({
+    const [state, setState] = useState({
+        info: {
+            name: "",
+            email: "",
+            phone: "",
+        }
+    });
+
+
+    const handleNameChange = (e) => {
+        setState({
             info: {
                 name: e.target.value,
-                email: this.state.info.email,
-                phone: this.state.info.phone,
+                email: state.info.email,
+                phone: state.info.phone,
 
             }
         });
     };
 
-    handleEmailChange = (e) => {
-        this.setState({
+    const handleEmailChange = (e) => {
+        setState({
             info: {
                 email: e.target.value,
-                name: this.state.info.name,
-                hone: this.state.info.phone,
+                name: state.info.name,
+                hone: state.info.phone,
 
             }
         });
     };
-    handlePhoneChange = (e) => {
-        this.setState({
+    const handlePhoneChange = (e) => {
+        setState({
             info: {
                 phone: e.target.value,
-                name: this.state.info.name,
-                email: this.state.info.email,
+                name: state.info.name,
+                email: state.info.email,
             }
         });
     };
-    onSubmitTask = (e) => {
+    const onSubmitTask = (e) => {
         e.preventDefault();
-        this.props.updateInfo(this.state.info);
+        props.updateInfo(state.info);
     }
 
-    render() {
-        const { info } = this.state;
 
-        return (
+    const { info } = state;
+
+    return (
             <div className="row g-3">
                 <div className=" form-floating col-md-6">
-                    <input onChange={this.handleNameChange}
+                    <input onChange={handleNameChange}
                         value={info.name}
                         type="text"
                         id="nameInput"
@@ -62,30 +61,28 @@ class GInfo extends Component {
                     <label htmlFor="nameInput">Name</label>
                 </div>
                 <div className="form-floating col-md-6">
-                    <input onChange={this.handleEmailChange}
+                    <input onChange={handleEmailChange}
                         value={info.email}
                         type="email"
                         id="emailInput"
                         className="form-control">
                     </input>
                     <label htmlFor="emailInput">Email</label>
-                </div>
+                </div >
                     <div className="form-floating col-mb-3">
-                        <input onChange={this.handlePhoneChange}
+                        <input onChange={handlePhoneChange}
                             value={info.phone}
                             type="tel"
                             id="phoneInput"
                             className="form-control">
                         </input>
                         <label htmlFor="phoneInput">Phone</label>
-                    </div>
-                <div className="d-grid gap-2">
-                    <button onClick={this.onSubmitTask}>Save</button>
-                </div>
-            </div>
-        )
-
-    }
+                    </div >
+    <div className="d-grid gap-2">
+        <button onClick={onSubmitTask}>Save</button>
+    </div>
+            </div >
+        )   
 
 }
 
