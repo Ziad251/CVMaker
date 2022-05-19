@@ -56,27 +56,37 @@ class Experience extends Component {
         const { experience } = this.state;
 
         return (
-            <div>
-
-                <label>companyName</label>
-                <input onChange={this.handlecompanyNameChange}
-                    value={experience.companyName}
-                    type="text"
-                    id="companyNameInput">
-                </input>
-                <label>jobTitle</label>
-                <input onChange={this.handlejobTitleChange}
-                    value={experience.jobTitle}
-                    type="text"
-                    id="jobTitleInput">
-                </input>
-                <label>duties</label>
-                <input onChange={this.handledutiesChange}
-                    value={experience.duties}
-                    type="text"
-                    id="dutiesInput">
-                </input>
-                <button  onClick={this.onSubmitTask}>Save</button>
+            <div className="row g-3">
+                <div className=" form-floating col-md-6">
+                    <input onChange={this.handlecompanyNameChange}
+                        value={experience.companyName}
+                        type="text"
+                        id="companyNameInput"
+                        className="form-control">
+                    </input>
+                    <label htmlFor="companyNameInput">Company Name</label>
+                </div>
+                <div className="form-floating col-md-6">
+                    <input onChange={this.handlejobTitleChange}
+                        value={experience.jobTitle}
+                        type="text"
+                        id="jobTitleInput"
+                        className="form-control">
+                    </input>
+                    <label htmlFor="jobTitleInput">Job Title</label>
+                </div>
+                <div className="form-floating col-md-6">
+                    <input onChange={this.handledutiesChange}
+                        value={experience.duties}
+                        type="text"
+                        id="dutiesInput"
+                        className="form-control">
+                    </input>
+                    <label htmlFor="dutiesInput">Duties</label>
+                </div>
+                <div className="d-grid gap-2">
+                    <button onClick={this.onSubmitTask}>Save</button>
+                </div>
             </div>
         )
 
@@ -85,42 +95,3 @@ class Experience extends Component {
 }
 
 export default Experience;
-
-// const Experiences = () => {
-//     return (
-//         <div>
-//         <label>Company companyName</label>
-//         <input onChange={this.handleChange}
-//             value={task.text}
-//             type="text"
-//             id="taskInput">
-//         </input> 
-//         <label>Position Title</label>
-//         <input onChange={this.handleChange}
-//             value={task.text}
-//             type="text"
-//             id="taskInput">
-//         </input>
-//         <label>Main Tasks</label>
-//         <input onChange={this.handleChange}
-//             value={task.text}
-//             type="text"
-//             id="taskInput">
-//         </input>
-//         <label>From </label>
-//         <input onChange={this.handleChange}
-//             value={task.text}
-//             type="text"
-//             id="taskInput">
-//         </input>
-//         <label>Until </label>
-//         <input onChange={this.handleChange}
-//             value={task.text}
-//             type="text"
-//             id="taskInput">
-//         </input>
-//         </div>
-//     )
-    
-// }
-// export default Experiences;

@@ -1,13 +1,13 @@
 import React from "react";
 
 const Overview = (props) => {
-  const { tasks, info, education, experience } = props;
+  const { info, education, experience } = props;
 
   return (
-    <ul>
-      {tasks.map((task) => {
-        return <li key={task.id}>{task.text}</li>;
-      })}
+    //   {tasks.map((task) => {
+    //     return <li key={task.id}>{task.text}</li>;
+    //   })}
+      <ul>
       <li>{info.name}</li>
       <li>{info.email}</li>
       <li>{info.phone}</li>

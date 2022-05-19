@@ -56,27 +56,37 @@ class Education extends Component {
         const { education } = this.state;
 
         return (
-            <div>
-
-                <label>schoolName</label>
-                <input onChange={this.handleschoolNameChange}
-                    value={education.schoolName}
-                    type="text"
-                    id="schoolNameInput">
-                </input>
-                <label>titleOfStudy</label>
-                <input onChange={this.handletitleOfStudyChange}
-                    value={education.titleOfStudy}
-                    type="text"
-                    id="titleOfStudyInput">
-                </input>
-                <label>startDate</label>
-                <input onChange={this.handlestartDateChange}
-                    value={education.startDate}
-                    type="text"
-                    id="startDateInput">
-                </input>
-                <button  onClick={this.onSubmitTask}>Save</button>
+            <div className="row g-3">
+                <div className="form-floating col-md-6">
+                    <input onChange={this.handleschoolNameChange}
+                        value={education.schoolName}
+                        type="text"
+                        id="schoolNameInput"
+                        className="form-control">
+                    </input>
+                    <label htmlFor="schoolNameInput">School Name</label>
+                </div>
+                <div className="form-floating col-md-6">
+                    <input onChange={this.handletitleOfStudyChange}
+                        value={education.titleOfStudy}
+                        type="text"
+                        id="titleOfStudyInput"
+                        className="form-control">
+                    </input>
+                    <label htmlFor="titleOfStudyInput">Title Of Study</label>
+                </div>
+                <div className="form-floating col mb-3">
+                    <input onChange={this.handlestartDateChange}
+                        value={education.startDate}
+                        type="date"
+                        id="startDateInput"
+                        className="form-control">
+                    </input>
+                    <label htmlFor="startDateInput">Start Date</label>
+                </div>
+                <div className="d-grid gap-2">
+                    <button onClick={this.onSubmitTask}>Save</button>
+                </div>
             </div>
         )
 

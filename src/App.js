@@ -8,82 +8,76 @@ import Overview from "./Overview";
 class App extends Component {
   constructor() {
     super();
-     
+
     this.updateInfo.bind(this);
     this.updateExperience.bind(this);
     this.updateEducation.bind(this);
 
     this.state = {
-      task: { text: '', id: uniqid() },
-      tasks: [],
-      info: '',
-      education: '',
-      experience: '',
+      history: [],
+      cv: {
+        id: uniqid(),
+        info: '',
+        education: '',
+        experience: '',
+      }
     };
   }
 
   updateInfo = (data) => {
-    console.log(data);
     this.setState({
-      info: data
+      cv:{
+        id: this.state.cv.id,
+        info: data,
+        education: this.state.cv.education,
+        experience: this.state.cv.experience
+      }
     });
   }
   updateEducation = (data) => {
-    console.log(data);
     this.setState({
-      education: data
+      cv: {
+        education: data,
+        id: this.state.cv.id,
+        info: data,
+        experience: this.state.cv.experience
+      }
     });
   }
   updateExperience = (data) => {
-    console.log(data);
     this.setState({
-      experience: data
-    });
-  }
-  handleChange = (e) => {
-    this.setState({
-      task: {
-        text: e.target.value,
-        id: this.state.task.id,
-
+      cv: {
+        experience: data,
+        id: this.state.cv.id,
+        info: data,
+        education: this.state.cv.education,
       }
     });
-  };
+  }
 
   onSubmitTask = (e) => {
     e.preventDefault();
     this.setState({
-      tasks: this.state.tasks.concat(this.state.task),
-      task: { 
-        text: '',
-        id: uniqid(),
-      },
+      history: this.state.history.concat(this.state.cv),
+      cv: {
+      info: '',
+      education: '',
+      experience: '',
+      }
     });
   };
 
   render() {
-    const { task, tasks, info, experience, education } = this.state;
+    const { info, experience, education } = this.state.cv;
 
     return (
       <div>
-        <form onSubmit={this.onSubmitTask}>
-          <label htmlFor="taskInput">Enter task</label>
-          <input
-            onChange={this.handleChange}
-            value={task.text}
-            type="text"
-            id="taskInput"
-          />
-          <button type="submit">
-            Add Task
-          </button>
-           {/* Passing the updateInfo function 
-           in child as a prop */}
-          <GInfo updateInfo = {this.updateInfo} />
-          <Education updateEducation = {this.updateEducation} />
-          <Experience updateExperience = {this.updateExperience} />
+        <form className="row g-3" onSubmit={this.onSubmitTask}>
+          <GInfo updateInfo={this.updateInfo} />
+          <Education updateEducation={this.updateEducation} />
+          <Experience updateExperience={this.updateExperience} />
         </form>
-        <Overview tasks={tasks} info={info} education={education} experience={experience}/>
+        <Overview info={info} education={education} experience={experience} />
       </div>
     );
   }
