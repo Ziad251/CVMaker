@@ -4,6 +4,7 @@ import Education from "./Education";
 import Experience from "./Experience";
 import GInfo from "./GInfo";
 import Overview from "./Overview";
+import {sampleInfo, sampleExperience, sampleEducation }  from "./sample";
 
 class App extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class App extends Component {
 
   updateInfo = (data) => {
     this.setState({
-      cv:{
+      cv: {
         id: this.state.cv.id,
         info: data,
         education: this.state.cv.education,
@@ -39,7 +40,7 @@ class App extends Component {
       cv: {
         education: data,
         id: this.state.cv.id,
-        info: data,
+        info: this.state.cv.info,
         experience: this.state.cv.experience
       }
     });
@@ -49,8 +50,20 @@ class App extends Component {
       cv: {
         experience: data,
         id: this.state.cv.id,
-        info: data,
+        info: this.state.cv.info,
         education: this.state.cv.education,
+      }
+    });
+  }
+
+  useDemoCV = (e) => {
+    e.preventDefault();
+    this.setState({
+      cv: {
+        id: this.state.cv.id,
+        info: sampleInfo,
+        education: sampleEducation,
+        experience: sampleExperience,
       }
     });
   }
@@ -60,9 +73,9 @@ class App extends Component {
     this.setState({
       history: this.state.history.concat(this.state.cv),
       cv: {
-      info: '',
-      education: '',
-      experience: '',
+        info: '',
+        education: '',
+        experience: '',
       }
     });
   };
@@ -77,7 +90,14 @@ class App extends Component {
           <Education updateEducation={this.updateEducation} />
           <Experience updateExperience={this.updateExperience} />
         </form>
-        <Overview info={info} education={education} experience={experience} />
+        <div className="row align-items-center justify-content-around">
+        <div className="col-10">
+          <Overview info={info} education={education} experience={experience} />
+        </div>
+        <div className="col-2">
+        <button className="btn btn-primary" onClick={this.useDemoCV}> Demo </button>
+        </div>
+        </div>
       </div>
     );
   }

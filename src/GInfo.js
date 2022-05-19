@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import uniqid from "uniqid";
 
 class GInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
             info: {
-                id: uniqid(),
                 name: "",
                 email: "",
                 phone: "",
@@ -20,7 +18,6 @@ class GInfo extends Component {
                 name: e.target.value,
                 email: this.state.info.email,
                 phone: this.state.info.phone,
-                id: this.state.info.id,
 
             }
         });
@@ -32,7 +29,6 @@ class GInfo extends Component {
                 email: e.target.value,
                 name: this.state.info.name,
                 hone: this.state.info.phone,
-                id: this.state.info.id,
 
             }
         });
@@ -43,7 +39,6 @@ class GInfo extends Component {
                 phone: e.target.value,
                 name: this.state.info.name,
                 email: this.state.info.email,
-                id: this.state.info.id,
             }
         });
     };

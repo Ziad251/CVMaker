@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import uniqid from "uniqid";
 
 class Education extends Component {
     constructor(props) {
         super(props);
         this.state = {
             education: {
-                id: uniqid(),
                 schoolName: "",
                 titleOfStudy: "",
                 startDate: "",
@@ -20,7 +18,6 @@ class Education extends Component {
                 schoolName: e.target.value,
                 titleOfStudy: this.state.education.titleOfStudy,
                 startDate: this.state.education.startDate,
-                id: this.state.education.id,
 
             }
         });
@@ -31,8 +28,7 @@ class Education extends Component {
             education: {
                 titleOfStudy: e.target.value,
                 schoolName: this.state.education.schoolName,
-                hone: this.state.education.startDate,
-                id: this.state.education.id,
+                startDate: this.state.education.startDate,
 
             }
         });
@@ -43,7 +39,6 @@ class Education extends Component {
                 startDate: e.target.value,
                 schoolName: this.state.education.schoolName,
                 titleOfStudy: this.state.education.titleOfStudy,
-                id: this.state.education.id,
             }
         });
     };

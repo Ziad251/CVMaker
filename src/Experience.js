@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import uniqid from "uniqid";
 
 class Experience extends Component {
     constructor(props) {
         super(props);
         this.state = {
             experience: {
-                id: uniqid(),
                 companyName: "",
                 jobTitle: "",
                 duties: "",
@@ -20,7 +18,7 @@ class Experience extends Component {
                 companyName: e.target.value,
                 jobTitle: this.state.experience.jobTitle,
                 duties: this.state.experience.duties,
-                id: this.state.experience.id,
+                
 
             }
         });
@@ -32,7 +30,7 @@ class Experience extends Component {
                 jobTitle: e.target.value,
                 companyName: this.state.experience.companyName,
                 hone: this.state.experience.duties,
-                id: this.state.experience.id,
+                
 
             }
         });
@@ -43,7 +41,7 @@ class Experience extends Component {
                 duties: e.target.value,
                 companyName: this.state.experience.companyName,
                 jobTitle: this.state.experience.jobTitle,
-                id: this.state.experience.id,
+                
             }
         });
     };
