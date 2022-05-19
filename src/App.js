@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import uniqid from "uniqid";
-import Education from "./Education";
-import Experience from "./Experience";
-import GInfo from "./GInfo";
-import Overview from "./Overview";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import GInfo from "./components/GInfo";
+import Overview from "./components/Overview";
 import {sampleInfo, sampleExperience, sampleEducation }  from "./sample";
 
 class App extends Component {
